@@ -10,17 +10,26 @@ namespace CCO_ContaCorrente
         public string Titular { get; set; }
 
         public double Saldo { get; private set; }
+        public object Deposito { get; internal set; }
 
-        public ContaBancaria(int numero, string titular){
+        public ContaBancaria(int numero, string titular) {
             Numero = numero;
             Titular = titular;
         }
 
-        public ContaBancaria(int numero, string titular, double saldo) : this (numero, titular) {
+        public ContaBancaria(int numero, string titular, double saldo) : this(numero, titular) {
             Saldo = saldo;
 
         }
 
+        public void deposito(double quantia){
+            Saldo += quantia;
+        }
+
+        public void saque (double quantia)
+        {
+            Saldo -= quantia + 5.0;
+        }
         public override string ToString()
         {
             return "Conta"
